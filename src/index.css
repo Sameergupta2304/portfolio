@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-canvas: #0a0a0a;
+  --color-panel: #111111;
+  --color-text: #f4f4f5;
+  --color-muted: #a1a1aa;
+  --color-accent: #5b8cff;
+  --color-border: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at top left, rgba(91, 140, 255, 0.14), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent 25%),
+    var(--color-canvas);
+  color: var(--color-text);
+  font-family: 'Inter', sans-serif;
+}
+
+::selection {
+  background: rgba(91, 140, 255, 0.3);
+  color: var(--color-text);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply overflow-x-hidden;
+  }
+
+  a {
+    @apply text-inherit no-underline;
+  }
+}
+
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-container px-6 sm:px-8 lg:px-10;
+  }
+
+  .section-shell {
+    @apply py-24 sm:py-28 lg:py-32;
+  }
+
+  .panel {
+    @apply rounded-3xl border border-border backdrop-blur;
+    background-color: rgba(17, 17, 17, 0.72);
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.24em] text-accent;
+  }
+
+  .section-title {
+    @apply text-3xl font-semibold tracking-tight text-text sm:text-4xl;
+  }
+
+  .section-copy {
+    @apply max-w-2xl text-base leading-7 text-muted sm:text-lg;
+  }
+}
